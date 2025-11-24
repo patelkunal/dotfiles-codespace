@@ -5,10 +5,11 @@
 
 [alias]
 	# Shortcuts for common commands
-	st = status
+	st = status -sb
+	sts = status
 	co = checkout
 	br = branch
-	ci = commit
+	cmt = commit
 	unstage = reset HEAD --
 	
 	# Pretty log outputs
