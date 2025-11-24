@@ -42,8 +42,8 @@ set background=dark           " Dark background
 set mouse=a                   " Enable mouse support
 
 " Key mappings
-" Clear search highlighting
-nnoremap <silent> <C-l> :nohlsearch<CR><C-l>
+" Clear search highlighting with leader-/
+nnoremap <silent> <leader>/ :nohlsearch<CR>
 
 " Move between splits
 nnoremap <C-h> <C-w>h

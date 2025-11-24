@@ -80,6 +80,6 @@ echo "  vim: $(vim --version | head -n 1)"
 echo "  git: $(git --version)"
 echo ""
 echo "Git aliases available:"
-git aliases 2>/dev/null || git config --get-regexp alias
+git config --get-regexp alias
 echo ""
 echo "========================================="
