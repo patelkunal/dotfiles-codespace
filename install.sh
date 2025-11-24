@@ -42,6 +42,12 @@ echo "Creating symlinks for dotfiles..."
 # Get the directory where this script is located
 DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+# Verify we got a valid directory
+if [ -z "$DOTFILES_DIR" ] || [ ! -d "$DOTFILES_DIR" ]; then
+    echo "Error: Unable to determine script location"
+    exit 1
+fi
+
 # Backup existing dotfiles if they exist
 backup_and_link() {
     local source="$1"
@@ -79,7 +85,11 @@ echo "Installed versions:"
 echo "  vim: $(vim --version | head -n 1)"
 echo "  git: $(git --version)"
 echo ""
-echo "Git aliases available:"
-git config --get-regexp alias
+if [ -L "$HOME/.gitconfig" ]; then
+    echo "Git aliases available:"
+    git config --get-regexp alias 2>/dev/null || echo "  (no aliases configured)"
+else
+    echo "Warning: .gitconfig symlink not created"
+fi
 echo ""
 echo "========================================="

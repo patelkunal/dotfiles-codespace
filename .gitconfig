@@ -41,8 +41,8 @@
 	# Discard changes
 	discard = checkout --
 	
-	# Clean up merged branches
-	cleanup = "!git branch --merged | grep -v '\\*\\|main\\|master\\|develop' | xargs -n 1 git branch -d"
+	# Clean up merged branches (safely handles no branches)
+	cleanup = "!git branch --merged | grep -v '\\*\\|main\\|master\\|develop' | xargs -r -n 1 git branch -d"
 	
 	# Show file history
 	filelog = log -u
