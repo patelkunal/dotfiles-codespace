@@ -1,0 +1,85 @@
+[user]
+	# These will be overridden by your GitHub Codespaces configuration
+	name = Your Name
+	email = your.email@example.com
+
+[alias]
+	# Shortcuts for common commands
+	st = status -sb
+	sts = status
+	co = checkout
+	br = branch
+	cmt = commit
+	unstage = reset HEAD --
+	
+	# Pretty log outputs
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	lga = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
+	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+	
+	# Show last commit
+	last = log -1 HEAD --stat
+	
+	# Diff helpers
+	df = diff
+	dc = diff --cached
+	
+	# Branch management
+	branches = branch -a
+	tags = tag -l
+	remotes = remote -v
+	
+	# Amend the last commit
+	amend = commit --amend --no-edit
+	
+	# Show contributors
+	contributors = shortlog --summary --numbered
+	
+	# Undo last commit but keep changes
+	undo = reset --soft HEAD^
+	
+	# Discard changes
+	discard = checkout --
+	
+	# Clean up merged branches (safely handles no branches)
+	cleanup = "!git branch --merged | grep -v '\\*\\|main\\|master\\|develop' | xargs -r -n 1 git branch -d"
+	
+	# Show file history
+	filelog = log -u
+	
+	# Find commits by commit message
+	find = "!git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep"
+	
+	# List aliases
+	aliases = config --get-regexp alias
+
+[color]
+	ui = auto
+	branch = auto
+	diff = auto
+	status = auto
+
+[core]
+	editor = vim
+	autocrlf = input
+
+[push]
+	default = simple
+	followTags = true
+
+[pull]
+	rebase = false
+
+[init]
+	defaultBranch = main
+
+[diff]
+	tool = vimdiff
+
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+
+[credential]
+	helper = cache --timeout=3600
